@@ -1,0 +1,6 @@
+flask
+Weasyprint
+Flask-WeasyPrint
+pandas
+gunicorn
+requests
