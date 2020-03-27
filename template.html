@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <title>{{ title }}</title>
+    <style>
+      h1{
+        font-size:30px;
+        text-align: center;
+      }
+      h2{
+        font-size:20px;
+        text-align:left;
+      }
+      th{
+        background-color:burlywood;
+        border-bottom: 1px solid #ddd;
+      }
+      td{
+        border-bottom: 1px solid #ddd;
+      }
+      tr:hover {background-color:lightyellow;}
+      tr:nth-child(even) {background-color:beige;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 >{{Info}}</h1>
+      <br/>
+    <div class="row">
+      <div class="col-md-6">
+    <h2>Monday</h2>
+    {{ time_table_mon }}
+    <h2>Tuesday</h2>
+    {{ time_table_tue }}
+    <h2>Wednesday</h2>
+    {{ time_table_wed }}
+    <h2>Thursday</h2>
+    {{ time_table_thu }}
+    <h2>Sunday</h2>
+    {{ time_table_sun }}
+    </br>
+    </div>
+    <div class="col-md-6">
+    <h2>Monday Clash Courses</h2>
+    {{ clash_mon }}
+    <h2>Tuesday Clash Courses</h2>
+    {{ clash_tue }}
+    <h2>Wednesday Clash Courses</h2>
+    {{ clash_wed }}
+    <h2>Thursday Clash Courses</h2>
+    {{ clash_thu }}
+    <h2>Sunday Clash Courses</h2>
+    {{ clash_sun }}
+    </div>
+  </div>
+  </div>
+  </body>
+</html>
