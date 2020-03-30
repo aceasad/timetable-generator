@@ -6,7 +6,7 @@ from datetime import datetime
 from itertools import combinations, groupby
 from jinja2 import Environment, FileSystemLoader
 from flask import Flask, request, make_response
-from flash_weasyprint import HTML, render_pdf
+#from flash_weasyprint import HTML, render_pdf
 
 app = Flask(__name__)
 
@@ -103,15 +103,7 @@ def compare(random_selection,overlap_pairs):
 def removeDuplicates(k):
     k.sort()
     return list(k for k,_ in groupby(k))
-'''
 
-        # i=0 [ Islamiat: 10:30 / 11:30 / OS : 10:30 / 11:30 / Coding 9:30 / 10:30]
-        # i=11 [ Islamiat: 10:30 / 11:30 / OS : 10:30 / 11:30 / Coding 9:30 / 10:30]
-        # i=66 [ Islamiat: 9:30 / 10:30 / OS : 10:30 / 11:30 / Coding 9:30 / 10:30]
-        # i=1 [ Islamiat: 9:30 / 10:30 / OS : 10:30 / 11:30 / Coding 9:30 / 10:30]
-        # i=2 [ Islamiat: 9:30 / 10:30 / OS : 10:30 / 11:30 / Coding 11:30 / 12:30]
-
-'''
 def get_recommendation(day,samples):
     random_schedules=[]
     for i in range(0,samples):
@@ -144,8 +136,8 @@ def index():
 
 @app.route('/timetable', methods=['GET'])
 def get_timeschedule():
-    student_id = request.args.get("query")
     try:
+        student_id = request.args.get("query")
         timetable,courses,student=get_API_data(student_id)
         days=get_timetable_days(student,timetable)
         time_table_response={
@@ -204,6 +196,7 @@ def get_timeschedule():
         thu = pd.DataFrame(time_table_response['thursday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
         sun = pd.DataFrame(time_table_response['sunday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
 
+        
         mon_clash=get_clashes('monday',time_table_response)
         tue_clash=get_clashes('tuesday',time_table_response)
         wed_clash=get_clashes('wednesday',time_table_response)
@@ -230,7 +223,8 @@ def get_timeschedule():
         html_timetable = template.render(template_vars)
         with open('timetable.html', 'w') as file:
             file.write(html_timetable)
-        return render_pdf(HTML(string=html_timetable))
+        return html_timetable
+#       return render_pdf(HTML(string=html_timetable))
     except:
         return "<div> <h1>Time Table Generator</h1><br/><h2>The Student ID doesn't exist for which time-table is requested!</h2></div>"
 
