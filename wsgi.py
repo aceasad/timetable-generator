@@ -1,4 +1,4 @@
-import app from TimeTableGenerator
+from TimeTableGenerator import app
 
 if __name__ == "__main__":
     app.run()
