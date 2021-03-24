@@ -15,19 +15,113 @@ def load(url):
     res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36', 'Accept':'text/html'}, timeout=10)
     return json.loads(res.text)
 
+def getStudentCourses(student_id):
+    student_courses_url="https://recommendationsystem.pretesting.online/public/api/studentCourses/"+student_id
+    student_courses_json = load(student_courses_url)
+    student = pd.json_normalize(student_courses_json)
+    info={'id':student['student.id'][0],'name':student['student.student_name'][0],'gpa':student['student.gpa'][0],'level':student['student.levels'][0],}
+    student_courses = student.drop(['student.created_at','type','id','student.updated_at','student.created_at','course_name','created_at','updated_at','course.id','course.name','course.code','course.created_at','course.updated_at','student.id','student.email','student.username','student.college_id','student.student_name','student_id','student.levels','student.type','student.gpa','course.prerequisites'],axis=1)
+    student_courses["course_id"] = pd.to_numeric(student_courses["course_id"])
+    return student_courses,info
+
+
 def get_API_data(student_id):
-    timetable_url="http://academicadmin.site/public/api/timetableData/"
-    courses_url="http://academicadmin.site/public/api/coursesData?id="+student_id
-    courses_json=load(courses_url)
+    course_url="https://recommendationsystem.pretesting.online/public/api/coursesData?id="+student_id
+    timetable_url="https://recommendationsystem.pretesting.online/public/api/timetableData"
+    courses_json=load(course_url)
     timetable_json=load(timetable_url)
     timetable=pd.DataFrame(dict(timetable_json)['timetable_data'])
     timetable=timetable.drop(['id','created_at','updated_at'], 1)
     courses=pd.DataFrame(dict(courses_json)['courses_data'])
     courses=courses.drop(['created_at','updated_at'],1)
-    student=pd.DataFrame(dict(courses_json)['current_course_data'])
-    student = student[student.type != 'Future']
-    student=student.drop(['name','type','supervisor_id','student_id','username','college_id','student_name','email','password','created_at','updated_at','id'],1)
-    return timetable,courses,student
+    student_courses,info = getStudentCourses(student_id)
+    return timetable,courses,student_courses,info
+
+def getPreRequisites(courses,student):
+    dependent_url = "https://recommendationsystem.pretesting.online/public/api/coursePrerequisites/"
+    preRequisites={}
+    for i in range(0,len(courses['id'])):
+        if int(courses['id'][i]) not in student['course_id']:
+            dependent_json=load(dependent_url+courses['id'][i])
+            dependent_id=[]
+            if(len(dependent_json)!=0):
+                for c in dependent_json:
+                    dependent_id.append(c['dependent_course_id'])
+            if courses['id'][i] not in preRequisites:
+                preRequisites.setdefault(courses['id'][i],dependent_id)
+    return preRequisites
+
+def getCourses(student,courses,info,prerequist):
+    ch=18
+    hard_4=1
+    inter_4=2
+    easy_4=2        
+    inter_3=2
+    easy_3=3
+    inter_2=1
+    easy_2=4
+    easy_1=3
+    gpa=float(info['gpa'].replace(":","."))
+    futureCourse = pd.DataFrame(columns=['course_id','type','credit_hours','prerequist'])
+    for i in range(0,len(courses['id'])):
+        if int(courses['id'][i]) not in student['course_id']:
+            if(ch>0):
+                if(gpa>4):
+                    if(courses['type'][i]=="Intermediate" and inter_4>0):
+                        inter_4-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                    if(courses['type'][i]=="Difficult" and hard_4>0):
+                        hard_4-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                    if(courses['type'][i]=="easy" and easy_4>0):
+                        easy_4-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                elif(gpa>3.0 and gpa < 4.0):
+                    if(courses['type'][i]=="Intermediate" and inter_3>0):
+                        inter_3-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                    if(courses['type'][i]=="easy" and easy_3>0):
+                        easy_3-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                elif(gpa>2.8 and gpa < 3.1):
+                    if(courses['type'][i]=="Intermediate" and inter_2>0):
+                        inter_2-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                    if(courses['type'][i]=="easy" and easy_2>0):
+                        easy_2-=1
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse=futureCourse.append(row,ignore_index=True)
+                        ch=ch-int(row['credit_hours'])
+
+                elif(gpa<2.81):
+                    if(courses['type'][i]=="easy" and easy_1>0):
+                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
+                        futureCourse.append(row,ignore_index=True)
+                        easy_1-=1
+                        ch=ch-int(row['credit_hours'])                
+            else:
+                #print (futureCourse)
+                break
+    return futureCourse
+
 
 # It returns the related courses for the student from the global time table day wise
 def get_timetable_days(student,timetable):
@@ -116,7 +210,7 @@ def get_recommendation(day,samples):
     for random_timetables in removed_duplicated_random_schedules:
         result=compare(random_timetables,overlap_pairs)
         if(result==True):
-            print("Time Table Suggestion Found!")
+            #print("Time Table Suggestion Found!")
             recommendations.append(random_timetables)
             break
     return recommendations, overlap_pairs
@@ -134,12 +228,15 @@ def get_clashes(day,time_table_response):
 def index():
     return ("<div><h1>Academic Time Table Recommender API</h1> <br/><h2>/timetable?query=Student_id</h2> <br/><h3>This returns the recommended courses and clashes for this particular student</h3> </div>")
 
+
 @app.route('/timetable', methods=['GET'])
 def get_timeschedule():
     try:
         student_id = request.args.get("query")
-        timetable,courses,student=get_API_data(student_id)
-        days=get_timetable_days(student,timetable)
+        timetable,courses,student,info=get_API_data(student_id)
+        prerequist=getPreRequisites(courses,student)
+        recommendedCourses=getCourses(student,courses,info,prerequist)
+        days=get_timetable_days(recommendedCourses,timetable)
         time_table_response={
             'monday':{
                 'recommendation':[],
@@ -206,7 +303,8 @@ def get_timeschedule():
 
         env = Environment(loader=FileSystemLoader('.'))
         template = env.get_template("template.html")
-        template_vars = {"Info" : "Timetable for Student ID "+student_id,
+        template_vars = {"Info" : "Timetable for Student "+info['name'],
+                        "Courses": recommendedCourses.to_html(),
                         "title":"Student Timetable",
                         "time_table_mon": mon.to_html(),
                         "time_table_tue": tue.to_html(),
@@ -218,15 +316,15 @@ def get_timeschedule():
                         "clash_wed": wed_clash.to_html(),
                         "clash_thu": thu_clash.to_html(),
                         "clash_sun": sun_clash.to_html()
-
                         }
         html_timetable = template.render(template_vars)
         with open('timetable.html', 'w') as file:
             file.write(html_timetable)
         return html_timetable
-#       return render_pdf(HTML(string=html_timetable))
+        return render_pdf(HTML(string=html_timetable))
     except:
         return "<div> <h1>Time Table Generator</h1><br/><h2>The Student ID doesn't exist for which time-table is requested!</h2></div>"
 
 if __name__=='__main__':
+    #test()
     app.run()

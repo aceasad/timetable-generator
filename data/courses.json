@@ -1,0 +1,573 @@
+[
+  {
+    "type": "header",
+    "version": "4.9.4",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  { "type": "database", "name": "pretgusn_academic" },
+  {
+    "type": "table",
+    "name": "courses",
+    "database": "pretgusn_academic",
+    "data": [
+      {
+        "id": "10",
+        "name": "Principles of Financial Accounting",
+        "code": "ACCT-201",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:18:11",
+        "updated_at": "2020-03-17 18:18:11"
+      },
+      {
+        "id": "12",
+        "name": "Islamic Studies : values&Ethics",
+        "code": "GS-104",
+        "type": "easy",
+        "credit_hours": "2",
+        "created_at": "2020-03-17 18:25:04",
+        "updated_at": "2020-03-17 18:25:04"
+      },
+      {
+        "id": "14",
+        "name": "Islamic Studies: Glances of The Prophet’s Biography",
+        "code": "GS-102",
+        "type": "easy",
+        "credit_hours": "2",
+        "created_at": "2020-03-17 18:30:54",
+        "updated_at": "2020-03-17 18:30:54"
+      },
+      {
+        "id": "15",
+        "name": "Probability & Statistics For Engineers 301",
+        "code": "STAT-301",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:32:39",
+        "updated_at": "2020-03-20 12:02:51"
+      },
+      {
+        "id": "16",
+        "name": "Probability & Statistics For Engineers",
+        "code": "STAT-305",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:33:07",
+        "updated_at": "2020-03-17 18:33:07"
+      },
+      {
+        "id": "17",
+        "name": "Intro to Software Engineering",
+        "code": "CS-281",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:34:14",
+        "updated_at": "2020-03-17 18:34:14"
+      },
+      {
+        "id": "18",
+        "name": "Computers Graphics",
+        "code": "CS-451",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:34:43",
+        "updated_at": "2020-03-17 18:34:43"
+      },
+      {
+        "id": "19",
+        "name": "Physics (1)",
+        "code": "PHYS-103",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:35:25",
+        "updated_at": "2020-03-17 18:35:25"
+      },
+      {
+        "id": "20",
+        "name": "Programming (1)",
+        "code": "CS-111",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:36:01",
+        "updated_at": "2020-03-17 18:36:01"
+      },
+      {
+        "id": "21",
+        "name": "English Composition",
+        "code": "ENGL-103",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:36:28",
+        "updated_at": "2020-03-17 18:36:28"
+      },
+      {
+        "id": "22",
+        "name": "Computer Security",
+        "code": "CS-433",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:36:58",
+        "updated_at": "2020-03-17 18:36:58"
+      },
+      {
+        "id": "23",
+        "name": "Digital Logic Design",
+        "code": "COE-211",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:38:18",
+        "updated_at": "2020-03-17 18:38:18"
+      },
+      {
+        "id": "25",
+        "name": "Theory of Computation",
+        "code": "CS-301",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:39:27",
+        "updated_at": "2020-03-17 19:12:24"
+      },
+      {
+        "id": "26",
+        "name": "Algorithms and Data Structures",
+        "code": "CS-211",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:40:50",
+        "updated_at": "2020-03-17 18:40:50"
+      },
+      {
+        "id": "27",
+        "name": "Discrete Structure",
+        "code": "CS-103",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:41:25",
+        "updated_at": "2020-03-17 18:41:25"
+      },
+      {
+        "id": "28",
+        "name": "Calculus (1)",
+        "code": "MATH-203",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:45:08",
+        "updated_at": "2020-03-17 18:45:08"
+      },
+      {
+        "id": "29",
+        "name": "Web Application Development (2)",
+        "code": "IS-345",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:45:58",
+        "updated_at": "2020-03-17 18:46:35"
+      },
+      {
+        "id": "30",
+        "name": "Linear Algebra (1)",
+        "code": "MATH-243",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:47:49",
+        "updated_at": "2020-03-17 18:47:49"
+      },
+      {
+        "id": "32",
+        "name": "Information Security",
+        "code": "IS-383",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:49:07",
+        "updated_at": "2020-03-17 18:49:07"
+      },
+      {
+        "id": "33",
+        "name": "Operating Systems",
+        "code": "CS-323",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:50:01",
+        "updated_at": "2020-03-17 18:50:01"
+      },
+      {
+        "id": "34",
+        "name": "Selected Topics",
+        "code": "IS-484",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:50:57",
+        "updated_at": "2020-03-17 18:50:57"
+      },
+      {
+        "id": "37",
+        "name": "Information Technology Infrastructure",
+        "code": "IS-203",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:52:39",
+        "updated_at": "2020-03-17 18:52:39"
+      },
+      {
+        "id": "38",
+        "name": "Operating System Configuration & Use",
+        "code": "IS-253",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:53:43",
+        "updated_at": "2020-03-17 18:53:43"
+      },
+      {
+        "id": "39",
+        "name": "Differential Equations (1)",
+        "code": "MATH-320",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:54:50",
+        "updated_at": "2020-03-17 18:54:50"
+      },
+      {
+        "id": "41",
+        "name": "Business Data Networking",
+        "code": "COE-331",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:55:17",
+        "updated_at": "2020-03-17 18:55:17"
+      },
+      {
+        "id": "42",
+        "name": "Database Management System (1)",
+        "code": "IS-251",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 18:56:10",
+        "updated_at": "2020-03-17 18:56:10"
+      },
+      {
+        "id": "43",
+        "name": "Enterprise Architecture & Strategy",
+        "code": "IS-447",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:56:53",
+        "updated_at": "2020-03-17 18:56:53"
+      },
+      {
+        "id": "47",
+        "name": "Graduation Project (1) IS",
+        "code": "IS-491",
+        "type": "easy",
+        "credit_hours": "1",
+        "created_at": "2020-03-17 18:58:23",
+        "updated_at": "2020-03-20 12:03:48"
+      },
+      {
+        "id": "48",
+        "name": "Graduation Project (1)",
+        "code": "CS-491",
+        "type": "easy",
+        "credit_hours": "1",
+        "created_at": "2020-03-17 18:58:43",
+        "updated_at": "2020-03-21 02:00:41"
+      },
+      {
+        "id": "49",
+        "name": "Special",
+        "code": "IS-382",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 18:59:27",
+        "updated_at": "2020-03-17 18:59:27"
+      },
+      {
+        "id": "50",
+        "name": "Web Engineering",
+        "code": "SE-481",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:00:02",
+        "updated_at": "2020-03-17 19:00:02"
+      },
+      {
+        "id": "51",
+        "name": "Database Systems",
+        "code": "CS-372",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-17 19:00:44",
+        "updated_at": "2021-03-04 06:00:45"
+      },
+      {
+        "id": "52",
+        "name": "Selected Topics In Mathematics",
+        "code": "MATH-206",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:01:30",
+        "updated_at": "2020-03-17 19:01:30"
+      },
+      {
+        "id": "53",
+        "name": "Smart systems",
+        "code": "CS-362",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:02:26",
+        "updated_at": "2021-03-04 06:13:52"
+      },
+      {
+        "id": "54",
+        "name": "Specialization Elective (3) IS",
+        "code": "IS-3",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:03:35",
+        "updated_at": "2020-03-20 17:21:08"
+      },
+      {
+        "id": "55",
+        "name": "Specialization Elective (2)",
+        "code": "IS-2",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:04:14",
+        "updated_at": "2020-03-17 19:04:14"
+      },
+      {
+        "id": "56",
+        "name": "Specialization Elective (1)",
+        "code": "CS-1",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:04:46",
+        "updated_at": "2020-03-17 19:04:46"
+      },
+      {
+        "id": "57",
+        "name": "Specialization Elective (3)",
+        "code": "CS-3",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-17 19:05:03",
+        "updated_at": "2020-03-17 19:05:03"
+      },
+      {
+        "id": "59",
+        "name": "University Electives Requirement (1)",
+        "code": "GSE-1",
+        "type": "easy",
+        "credit_hours": "2",
+        "created_at": "2020-03-17 19:05:51",
+        "updated_at": "2020-03-17 19:05:51"
+      },
+      {
+        "id": "60",
+        "name": "Free Elective (1)",
+        "code": "FE-1",
+        "type": "easy",
+        "credit_hours": "2",
+        "created_at": "2020-03-17 19:06:08",
+        "updated_at": "2020-03-17 19:06:08"
+      },
+      {
+        "id": "61",
+        "name": "Computing and professional ethics and society",
+        "code": "IS-482",
+        "type": "easy",
+        "credit_hours": "1",
+        "created_at": "2020-03-20 15:53:50",
+        "updated_at": "2020-03-20 15:53:50"
+      },
+      {
+        "id": "62",
+        "name": "Graduation Project (2)",
+        "code": "CS-492",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-21 15:59:57",
+        "updated_at": "2020-03-21 15:59:57"
+      },
+      {
+        "id": "63",
+        "name": "Database Management System (2)",
+        "code": "IS-252",
+        "type": "easy",
+        "credit_hours": "4",
+        "created_at": "2020-03-21 16:18:21",
+        "updated_at": "2020-03-21 16:18:21"
+      },
+      {
+        "id": "64",
+        "name": "Graduation Project (2)",
+        "code": "IS-492",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-21 16:19:38",
+        "updated_at": "2020-03-21 16:21:13"
+      },
+      {
+        "id": "65",
+        "name": "Graduation Project (2)IS",
+        "code": "IS-492",
+        "type": "easy",
+        "credit_hours": "3",
+        "created_at": "2020-03-21 16:20:51",
+        "updated_at": "2020-03-21 16:20:51"
+      },
+      {
+        "id": "66",
+        "name": "Testing One",
+        "code": "test-one",
+        "type": "Intermediate",
+        "credit_hours": "4",
+        "created_at": "2021-02-27 23:47:20",
+        "updated_at": "2021-02-27 23:47:20"
+      },
+      {
+        "id": "67",
+        "name": "physics (2)",
+        "code": "phys 103",
+        "type": "Intermediate",
+        "credit_hours": "4",
+        "created_at": "2021-03-03 07:37:47",
+        "updated_at": "2021-03-03 07:37:47"
+      },
+      {
+        "id": "69",
+        "name": "programming (2)",
+        "code": "CS112",
+        "type": "Difficult",
+        "credit_hours": "4",
+        "created_at": "2021-03-03 07:39:49",
+        "updated_at": "2021-03-03 07:39:49"
+      },
+      {
+        "id": "70",
+        "name": "Calculus (2)",
+        "code": "MATH 204",
+        "type": "Intermediate",
+        "credit_hours": "3",
+        "created_at": "2021-03-03 07:46:03",
+        "updated_at": "2021-03-03 07:46:03"
+      },
+      {
+        "id": "71",
+        "name": "communication skills",
+        "code": "ENGL 104",
+        "type": "Intermediate",
+        "credit_hours": "3",
+        "created_at": "2021-03-03 08:15:35",
+        "updated_at": "2021-03-03 08:15:35"
+      },
+      {
+        "id": "72",
+        "name": "Arabic language skills",
+        "code": "GS 112",
+        "type": "Easy",
+        "credit_hours": "2",
+        "created_at": "2021-03-03 09:00:37",
+        "updated_at": "2021-03-03 09:00:37"
+      },
+      {
+        "id": "73",
+        "name": "Technical writing",
+        "code": "ENGL 214",
+        "type": "Easy",
+        "credit_hours": "3",
+        "created_at": "2021-03-03 09:19:22",
+        "updated_at": "2021-03-03 09:19:22"
+      },
+      {
+        "id": "74",
+        "name": "Natural Science",
+        "code": "SCL 100",
+        "type": "Intermediate",
+        "credit_hours": "3",
+        "created_at": "2021-03-03 09:21:11",
+        "updated_at": "2021-03-03 09:21:11"
+      },
+      {
+        "id": "75",
+        "name": "Organizing and building the computer",
+        "code": "COE 224",
+        "type": "Difficult",
+        "credit_hours": "4",
+        "created_at": "2021-03-03 09:22:18",
+        "updated_at": "2021-03-03 09:22:18"
+      },
+      {
+        "id": "76",
+        "name": "Software analysis and modeling",
+        "code": "CS 284",
+        "type": "Difficult",
+        "credit_hours": "4",
+        "created_at": "2021-03-03 09:23:12",
+        "updated_at": "2021-03-03 09:23:12"
+      },
+      {
+        "id": "77",
+        "name": "Islamic Studies: Human Rights in Islam",
+        "code": "GS-103",
+        "type": "Easy",
+        "credit_hours": "2",
+        "created_at": "2021-03-04 05:52:57",
+        "updated_at": "2021-03-04 05:52:57"
+      },
+      {
+        "id": "78",
+        "name": "Free Elective (2)",
+        "code": "FE-2",
+        "type": "Easy",
+        "credit_hours": "2",
+        "created_at": "2021-03-04 05:55:27",
+        "updated_at": "2021-03-04 05:55:27"
+      },
+      {
+        "id": "79",
+        "name": "Computer Networks",
+        "code": "COE-332",
+        "type": "Difficult",
+        "credit_hours": "4",
+        "created_at": "2021-03-04 06:08:14",
+        "updated_at": "2021-03-04 06:08:14"
+      },
+      {
+        "id": "80",
+        "name": "University Electives Requirement (2)",
+        "code": "GSE-2",
+        "type": "Easy",
+        "credit_hours": "2",
+        "created_at": "2021-03-04 06:26:39",
+        "updated_at": "2021-03-04 06:26:39"
+      },
+      {
+        "id": "81",
+        "name": "Specialization Elective (2)",
+        "code": "CS-2",
+        "type": "Intermediate",
+        "credit_hours": "3",
+        "created_at": "2021-03-04 06:30:00",
+        "updated_at": "2021-03-04 06:30:00"
+      },
+      {
+        "id": "82",
+        "name": "Specialization Elective (3)",
+        "code": "CS-3",
+        "type": "Intermediate",
+        "credit_hours": "3",
+        "created_at": "2021-03-04 06:31:00",
+        "updated_at": "2021-03-04 06:31:00"
+      },
+      {
+        "id": "83",
+        "name": "Introduction to Parallel Computing",
+        "code": "CS-424",
+        "type": "Difficult",
+        "credit_hours": "4",
+        "created_at": "2021-03-04 06:34:03",
+        "updated_at": "2021-03-04 06:34:03"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1243 @@
+[
+  {
+    "id": 439,
+    "student_id": "55",
+    "course_id": "12",
+    "course_name": "Islamic Studies : values&Ethics",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 12,
+      "name": "Islamic Studies : values&Ethics",
+      "code": "GS-104",
+      "type": "easy",
+      "credit_hours": "2",
+      "created_at": "2020-03-17 18:25:04",
+      "updated_at": "2020-03-17 18:25:04",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 440,
+    "student_id": "55",
+    "course_id": "14",
+    "course_name": "Islamic Studies: Glances of The Prophet\u2019s Biography",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 14,
+      "name": "Islamic Studies: Glances of The Prophet\u2019s Biography",
+      "code": "GS-102",
+      "type": "easy",
+      "credit_hours": "2",
+      "created_at": "2020-03-17 18:30:54",
+      "updated_at": "2020-03-17 18:30:54",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 441,
+    "student_id": "55",
+    "course_id": "15",
+    "course_name": "Probability & Statistics For Engineers 301",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 15,
+      "name": "Probability & Statistics For Engineers 301",
+      "code": "STAT-301",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:32:39",
+      "updated_at": "2020-03-20 12:02:51",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 442,
+    "student_id": "55",
+    "course_id": "17",
+    "course_name": "Intro to Software Engineering",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 17,
+      "name": "Intro to Software Engineering",
+      "code": "CS-281",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:34:14",
+      "updated_at": "2020-03-17 18:34:14",
+      "prerequisites": [
+        {
+          "id": 16,
+          "course_id": "17",
+          "dependent_course_id": "20",
+          "created_at": "2021-03-03 19:44:51",
+          "updated_at": "2021-03-03 19:44:51"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 443,
+    "student_id": "55",
+    "course_id": "18",
+    "course_name": "Computers Graphics",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 18,
+      "name": "Computers Graphics",
+      "code": "CS-451",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:34:43",
+      "updated_at": "2020-03-17 18:34:43",
+      "prerequisites": [
+        {
+          "id": 25,
+          "course_id": "18",
+          "dependent_course_id": "26",
+          "created_at": "2021-03-04 06:24:30",
+          "updated_at": "2021-03-04 06:24:30"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 444,
+    "student_id": "55",
+    "course_id": "19",
+    "course_name": "Physics (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 19,
+      "name": "Physics (1)",
+      "code": "PHYS-103",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:35:25",
+      "updated_at": "2020-03-17 18:35:25",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 445,
+    "student_id": "55",
+    "course_id": "20",
+    "course_name": "Programming (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 20,
+      "name": "Programming (1)",
+      "code": "CS-111",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:36:01",
+      "updated_at": "2020-03-17 18:36:01",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 446,
+    "student_id": "55",
+    "course_id": "21",
+    "course_name": "English Composition",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 21,
+      "name": "English Composition",
+      "code": "ENGL-103",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:36:28",
+      "updated_at": "2020-03-17 18:36:28",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 447,
+    "student_id": "55",
+    "course_id": "22",
+    "course_name": "Computer Security",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 22,
+      "name": "Computer Security",
+      "code": "CS-433",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:36:58",
+      "updated_at": "2020-03-17 18:36:58",
+      "prerequisites": [
+        {
+          "id": 20,
+          "course_id": "22",
+          "dependent_course_id": "79",
+          "created_at": "2021-03-04 06:19:18",
+          "updated_at": "2021-03-04 06:19:18"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 448,
+    "student_id": "55",
+    "course_id": "23",
+    "course_name": "Digital Logic Design",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 23,
+      "name": "Digital Logic Design",
+      "code": "COE-211",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:38:18",
+      "updated_at": "2020-03-17 18:38:18",
+      "prerequisites": [
+        {
+          "id": 14,
+          "course_id": "23",
+          "dependent_course_id": "27",
+          "created_at": "2021-03-03 19:42:01",
+          "updated_at": "2021-03-03 19:42:01"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 449,
+    "student_id": "55",
+    "course_id": "26",
+    "course_name": "Algorithms and Data Structures",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 26,
+      "name": "Algorithms and Data Structures",
+      "code": "CS-211",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:40:50",
+      "updated_at": "2020-03-17 18:40:50",
+      "prerequisites": [
+        {
+          "id": 10,
+          "course_id": "26",
+          "dependent_course_id": "69",
+          "created_at": "2021-03-03 07:50:27",
+          "updated_at": "2021-03-03 07:50:27"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 450,
+    "student_id": "55",
+    "course_id": "27",
+    "course_name": "Discrete Structure",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 27,
+      "name": "Discrete Structure",
+      "code": "CS-103",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:41:25",
+      "updated_at": "2020-03-17 18:41:25",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 451,
+    "student_id": "55",
+    "course_id": "28",
+    "course_name": "Calculus (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 28,
+      "name": "Calculus (1)",
+      "code": "MATH-203",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:45:08",
+      "updated_at": "2020-03-17 18:45:08",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 452,
+    "student_id": "55",
+    "course_id": "33",
+    "course_name": "Operating Systems",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 33,
+      "name": "Operating Systems",
+      "code": "CS-323",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 18:50:01",
+      "updated_at": "2020-03-17 18:50:01",
+      "prerequisites": [
+        {
+          "id": 28,
+          "course_id": "33",
+          "dependent_course_id": "26",
+          "created_at": "2021-03-04 06:39:21",
+          "updated_at": "2021-03-04 06:39:21"
+        },
+        {
+          "id": 29,
+          "course_id": "33",
+          "dependent_course_id": "75",
+          "created_at": "2021-03-04 06:41:51",
+          "updated_at": "2021-03-04 06:41:51"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 453,
+    "student_id": "55",
+    "course_id": "39",
+    "course_name": "Differential Equations (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 39,
+      "name": "Differential Equations (1)",
+      "code": "MATH-320",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 18:54:50",
+      "updated_at": "2020-03-17 18:54:50",
+      "prerequisites": [
+        {
+          "id": 6,
+          "course_id": "39",
+          "dependent_course_id": "70",
+          "created_at": "2021-03-03 07:46:27",
+          "updated_at": "2021-03-03 07:46:27"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 454,
+    "student_id": "55",
+    "course_id": "48",
+    "course_name": "Graduation Project (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 48,
+      "name": "Graduation Project (1)",
+      "code": "CS-491",
+      "type": "easy",
+      "credit_hours": "1",
+      "created_at": "2020-03-17 18:58:43",
+      "updated_at": "2020-03-21 02:00:41",
+      "prerequisites": [
+        {
+          "id": 21,
+          "course_id": "48",
+          "dependent_course_id": "51",
+          "created_at": "2021-03-04 06:20:51",
+          "updated_at": "2021-03-04 06:20:51"
+        },
+        {
+          "id": 22,
+          "course_id": "48",
+          "dependent_course_id": "53",
+          "created_at": "2021-03-04 06:21:19",
+          "updated_at": "2021-03-04 06:21:19"
+        },
+        {
+          "id": 23,
+          "course_id": "48",
+          "dependent_course_id": "79",
+          "created_at": "2021-03-04 06:22:00",
+          "updated_at": "2021-03-04 06:22:00"
+        },
+        {
+          "id": 24,
+          "course_id": "48",
+          "dependent_course_id": "76",
+          "created_at": "2021-03-04 06:23:14",
+          "updated_at": "2021-03-04 06:23:14"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 455,
+    "student_id": "55",
+    "course_id": "51",
+    "course_name": "Database Systems",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 51,
+      "name": "Database Systems",
+      "code": "CS-372",
+      "type": "easy",
+      "credit_hours": "4",
+      "created_at": "2020-03-17 19:00:44",
+      "updated_at": "2021-03-04 06:00:45",
+      "prerequisites": [
+        {
+          "id": 17,
+          "course_id": "51",
+          "dependent_course_id": "26",
+          "created_at": "2021-03-04 06:04:58",
+          "updated_at": "2021-03-04 06:04:58"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 456,
+    "student_id": "55",
+    "course_id": "53",
+    "course_name": "Smart systems",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 53,
+      "name": "Smart systems",
+      "code": "CS-362",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 19:02:26",
+      "updated_at": "2021-03-04 06:13:52",
+      "prerequisites": [
+        {
+          "id": 19,
+          "course_id": "53",
+          "dependent_course_id": "26",
+          "created_at": "2021-03-04 06:15:03",
+          "updated_at": "2021-03-04 06:15:03"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 457,
+    "student_id": "55",
+    "course_id": "56",
+    "course_name": "Specialization Elective (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 56,
+      "name": "Specialization Elective (1)",
+      "code": "CS-1",
+      "type": "easy",
+      "credit_hours": "3",
+      "created_at": "2020-03-17 19:04:46",
+      "updated_at": "2020-03-17 19:04:46",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 458,
+    "student_id": "55",
+    "course_id": "59",
+    "course_name": "University Electives Requirement (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 59,
+      "name": "University Electives Requirement (1)",
+      "code": "GSE-1",
+      "type": "easy",
+      "credit_hours": "2",
+      "created_at": "2020-03-17 19:05:51",
+      "updated_at": "2020-03-17 19:05:51",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 459,
+    "student_id": "55",
+    "course_id": "60",
+    "course_name": "Free Elective (1)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 60,
+      "name": "Free Elective (1)",
+      "code": "FE-1",
+      "type": "easy",
+      "credit_hours": "2",
+      "created_at": "2020-03-17 19:06:08",
+      "updated_at": "2020-03-17 19:06:08",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 460,
+    "student_id": "55",
+    "course_id": "61",
+    "course_name": "Computing and professional ethics and society",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 61,
+      "name": "Computing and professional ethics and society",
+      "code": "IS-482",
+      "type": "easy",
+      "credit_hours": "1",
+      "created_at": "2020-03-20 15:53:50",
+      "updated_at": "2020-03-20 15:53:50",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 461,
+    "student_id": "55",
+    "course_id": "67",
+    "course_name": "physics (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:20",
+    "updated_at": "2021-03-07 15:01:20",
+    "course": {
+      "id": 67,
+      "name": "physics (2)",
+      "code": "phys 103",
+      "type": "Intermediate",
+      "credit_hours": "4",
+      "created_at": "2021-03-03 07:37:47",
+      "updated_at": "2021-03-03 07:37:47",
+      "prerequisites": [
+        {
+          "id": 5,
+          "course_id": "67",
+          "dependent_course_id": "19",
+          "created_at": "2021-03-03 07:41:02",
+          "updated_at": "2021-03-03 07:41:02"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 462,
+    "student_id": "55",
+    "course_id": "69",
+    "course_name": "programming (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 69,
+      "name": "programming (2)",
+      "code": "CS112",
+      "type": "Difficult",
+      "credit_hours": "4",
+      "created_at": "2021-03-03 07:39:49",
+      "updated_at": "2021-03-03 07:39:49",
+      "prerequisites": [
+        {
+          "id": 9,
+          "course_id": "69",
+          "dependent_course_id": "20",
+          "created_at": "2021-03-03 07:49:34",
+          "updated_at": "2021-03-03 07:49:34"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 463,
+    "student_id": "55",
+    "course_id": "70",
+    "course_name": "Calculus (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 70,
+      "name": "Calculus (2)",
+      "code": "MATH 204",
+      "type": "Intermediate",
+      "credit_hours": "3",
+      "created_at": "2021-03-03 07:46:03",
+      "updated_at": "2021-03-03 07:46:03",
+      "prerequisites": [
+        {
+          "id": 8,
+          "course_id": "70",
+          "dependent_course_id": "28",
+          "created_at": "2021-03-03 07:48:51",
+          "updated_at": "2021-03-03 07:48:51"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 464,
+    "student_id": "55",
+    "course_id": "71",
+    "course_name": "communication skills",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 71,
+      "name": "communication skills",
+      "code": "ENGL 104",
+      "type": "Intermediate",
+      "credit_hours": "3",
+      "created_at": "2021-03-03 08:15:35",
+      "updated_at": "2021-03-03 08:15:35",
+      "prerequisites": [
+        {
+          "id": 12,
+          "course_id": "71",
+          "dependent_course_id": "21",
+          "created_at": "2021-03-03 08:16:43",
+          "updated_at": "2021-03-03 08:16:43"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 465,
+    "student_id": "55",
+    "course_id": "72",
+    "course_name": "Arabic language skills",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 72,
+      "name": "Arabic language skills",
+      "code": "GS 112",
+      "type": "Easy",
+      "credit_hours": "2",
+      "created_at": "2021-03-03 09:00:37",
+      "updated_at": "2021-03-03 09:00:37",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 466,
+    "student_id": "55",
+    "course_id": "73",
+    "course_name": "Technical writing",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 73,
+      "name": "Technical writing",
+      "code": "ENGL 214",
+      "type": "Easy",
+      "credit_hours": "3",
+      "created_at": "2021-03-03 09:19:22",
+      "updated_at": "2021-03-03 09:19:22",
+      "prerequisites": [
+        {
+          "id": 13,
+          "course_id": "73",
+          "dependent_course_id": "71",
+          "created_at": "2021-03-03 19:34:50",
+          "updated_at": "2021-03-03 19:34:50"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 467,
+    "student_id": "55",
+    "course_id": "74",
+    "course_name": "Natural Science",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 74,
+      "name": "Natural Science",
+      "code": "SCL 100",
+      "type": "Intermediate",
+      "credit_hours": "3",
+      "created_at": "2021-03-03 09:21:11",
+      "updated_at": "2021-03-03 09:21:11",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 468,
+    "student_id": "55",
+    "course_id": "75",
+    "course_name": "Organizing and building the computer",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 75,
+      "name": "Organizing and building the computer",
+      "code": "COE 224",
+      "type": "Difficult",
+      "credit_hours": "4",
+      "created_at": "2021-03-03 09:22:18",
+      "updated_at": "2021-03-03 09:22:18",
+      "prerequisites": [
+        {
+          "id": 15,
+          "course_id": "75",
+          "dependent_course_id": "23",
+          "created_at": "2021-03-03 19:43:42",
+          "updated_at": "2021-03-03 19:43:42"
+        }
+      ]
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 469,
+    "student_id": "55",
+    "course_id": "76",
+    "course_name": "Software analysis and modeling",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 76,
+      "name": "Software analysis and modeling",
+      "code": "CS 284",
+      "type": "Difficult",
+      "credit_hours": "4",
+      "created_at": "2021-03-03 09:23:12",
+      "updated_at": "2021-03-03 09:23:12",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 470,
+    "student_id": "55",
+    "course_id": "77",
+    "course_name": "Islamic Studies: Human Rights in Islam",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 77,
+      "name": "Islamic Studies: Human Rights in Islam",
+      "code": "GS-103",
+      "type": "Easy",
+      "credit_hours": "2",
+      "created_at": "2021-03-04 05:52:57",
+      "updated_at": "2021-03-04 05:52:57",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 471,
+    "student_id": "55",
+    "course_id": "78",
+    "course_name": "Free Elective (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 78,
+      "name": "Free Elective (2)",
+      "code": "FE-2",
+      "type": "Easy",
+      "credit_hours": "2",
+      "created_at": "2021-03-04 05:55:27",
+      "updated_at": "2021-03-04 05:55:27",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 472,
+    "student_id": "55",
+    "course_id": "80",
+    "course_name": "University Electives Requirement (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 80,
+      "name": "University Electives Requirement (2)",
+      "code": "GSE-2",
+      "type": "Easy",
+      "credit_hours": "2",
+      "created_at": "2021-03-04 06:26:39",
+      "updated_at": "2021-03-04 06:26:39",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  },
+  {
+    "id": 473,
+    "student_id": "55",
+    "course_id": "81",
+    "course_name": "Specialization Elective (2)",
+    "type": "Previous",
+    "created_at": "2021-03-07 15:01:21",
+    "updated_at": "2021-03-07 15:01:21",
+    "course": {
+      "id": 81,
+      "name": "Specialization Elective (2)",
+      "code": "CS-2",
+      "type": "Intermediate",
+      "credit_hours": "3",
+      "created_at": "2021-03-04 06:30:00",
+      "updated_at": "2021-03-04 06:30:00",
+      "prerequisites": []
+    },
+    "student": {
+      "id": 55,
+      "student_name": "Dana",
+      "college_id": "Computer Science and Engineering",
+      "username": "Dana33",
+      "email": "dana12gy@gmail.com",
+      "levels": "Tenth",
+      "type": "Graduate",
+      "gpa": "3.78",
+      "created_at": "2021-03-07 15:01:20",
+      "updated_at": "2021-03-07 15:01:20"
+    }
+  }
+]
