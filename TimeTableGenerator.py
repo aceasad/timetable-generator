@@ -2,11 +2,11 @@ import pandas as pd
 import requests
 import random
 import json
+import pickle
 from datetime import datetime
 from itertools import combinations, groupby
 from jinja2 import Environment, FileSystemLoader
 from flask import Flask, request, make_response
-#from flash_weasyprint import HTML, render_pdf
 
 app = Flask(__name__)
 
@@ -19,11 +19,11 @@ def getStudentCourses(student_id):
     student_courses_url="https://recommendationsystem.pretesting.online/public/api/studentCourses/"+student_id
     student_courses_json = load(student_courses_url)
     student = pd.json_normalize(student_courses_json)
-    info={'id':student['student.id'][0],'name':student['student.student_name'][0],'gpa':student['student.gpa'][0],'level':student['student.levels'][0],}
+    info={'id':student['student.id'][0],'name':student['student.student_name'][0],'gpa':student['student.gpa'][0],'level':student['student.levels'][0]}
     student_courses = student.drop(['student.created_at','type','id','student.updated_at','student.created_at','course_name','created_at','updated_at','course.id','course.name','course.code','course.created_at','course.updated_at','student.id','student.email','student.username','student.college_id','student.student_name','student_id','student.levels','student.type','student.gpa','course.prerequisites'],axis=1)
     student_courses["course_id"] = pd.to_numeric(student_courses["course_id"])
     return student_courses,info
-
+       
 
 def get_API_data(student_id):
     course_url="https://recommendationsystem.pretesting.online/public/api/coursesData?id="+student_id
@@ -51,7 +51,7 @@ def getPreRequisites(courses,student):
                 preRequisites.setdefault(courses['id'][i],dependent_id)
     return preRequisites
 
-def getCourses(student,courses,info,prerequist):
+def getCourses(student_id,student,info):
     ch=18
     hard_4=1
     inter_4=2
@@ -63,63 +63,68 @@ def getCourses(student,courses,info,prerequist):
     easy_1=3
     gpa=float(info['gpa'].replace(":","."))
     futureCourse = pd.DataFrame(columns=['course_id','type','credit_hours','prerequist'])
-    for i in range(0,len(courses['id'])):
-        if int(courses['id'][i]) not in student['course_id']:
-            if(ch>0):
-                if(gpa>4):
-                    if(courses['type'][i]=="Intermediate" and inter_4>0):
-                        inter_4-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+    #Create a list of courses student can study here. 
+    studentcourses_url="https://recommendationsystem.pretesting.online/public/api/courses/notStudied/"+student_id
+    scourses_json=load(studentcourses_url)
+    scourses=pd.DataFrame(dict(scourses_json)['courses'])
 
-                    if(courses['type'][i]=="Difficult" and hard_4>0):
-                        hard_4-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+    
+    for i in range(0,len(scourses['id'])):
+        if(ch>0):
+            if(gpa>4):
+                if(scourses['type'][i]=="Intermediate" and inter_4>0):
+                    inter_4-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                    if(courses['type'][i]=="easy" and easy_4>0):
-                        easy_4-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+                if(scourses['type'][i]=="Difficult" and hard_4>0):
+                    hard_4-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                elif(gpa>3.0 and gpa < 4.0):
-                    if(courses['type'][i]=="Intermediate" and inter_3>0):
-                        inter_3-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+                if(scourses['type'][i]=="easy" and easy_4>0):
+                    easy_4-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                    if(courses['type'][i]=="easy" and easy_3>0):
-                        easy_3-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+            elif(gpa>3.0 and gpa < 4.0):
+                if(scourses['type'][i]=="Intermediate" and inter_3>0):
+                    inter_3-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                elif(gpa>2.8 and gpa < 3.1):
-                    if(courses['type'][i]=="Intermediate" and inter_2>0):
-                        inter_2-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+                if(scourses['type'][i]=="easy" and easy_3>0):
+                    easy_3-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                    if(courses['type'][i]=="easy" and easy_2>0):
-                        easy_2-=1
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse=futureCourse.append(row,ignore_index=True)
-                        ch=ch-int(row['credit_hours'])
+            elif(gpa>2.8 and gpa < 3.1):
+                if(scourses['type'][i]=="Intermediate" and inter_2>0):
+                    inter_2-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
 
-                elif(gpa<2.81):
-                    if(courses['type'][i]=="easy" and easy_1>0):
-                        row={'course_id':courses['id'][i],'name':courses['name'][i],'type':courses['type'][i],'credit_hours':courses['credit_hours'][i],'prerequist':prerequist[courses['id'][i]]}
-                        futureCourse.append(row,ignore_index=True)
-                        easy_1-=1
-                        ch=ch-int(row['credit_hours'])                
-            else:
-                #print (futureCourse)
-                break
+                if(scourses['type'][i]=="easy" and easy_2>0):
+                    easy_2-=1
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
+                    ch=ch-int(row['credit_hours'])
+
+            elif(gpa<2.81):
+                if(scourses['type'][i]=="easy" and easy_1>0):
+                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    futureCourse.append(row,ignore_index=True)
+                    easy_1-=1
+                    ch=ch-int(row['credit_hours'])                
+        else:
+            #print (futureCourse)
+            break
     return futureCourse
 
 
@@ -226,7 +231,33 @@ def get_clashes(day,time_table_response):
 
 @app.route('/',methods=['GET'])
 def index():
-    return ("<div><h1>Academic Time Table Recommender API</h1> <br/><h2>/timetable?query=Student_id</h2> <br/><h3>This returns the recommended courses and clashes for this particular student</h3> </div>")
+    return ("<div><h1>Academic Time Table Recommender API</h1> <br/><h2>/timetable?query=Student_id</h2> <br/><h3>This returns the recommended timetable for courses </h3><br/><h2>/courses?query=Student_id</h2> <br/><h3>This returns the recommended courses</h3> </div>")
+
+
+@app.route('/courses', methods=['GET'])
+def get_courses():
+#    try:
+    student_id = request.args.get("query")
+    timetable,courses,student,info=get_API_data(student_id)
+    #prerequist=getPreRequisites(courses,student)
+    recommendedCourses=getCourses(student_id,courses,info)
+    #print(recommendedCourses.head(5))
+    recommendedCourses.to_pickle('courses/'+student_id+'.pkl')
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template("courses.html")
+    template_vars = {"name" :info['name'],
+                    "id":info['id'],
+                    "gpa":str(info['gpa']),
+                    "level":info['level'],
+                    "Courses":recommendedCourses.to_html()
+                    }
+    html_courses = template.render(template_vars)
+    with open('student_courses.html', 'w') as file:
+        file.write(html_courses)
+    return html_courses
+    #return make_response(recommendedCourses.to_json(), 200)
+#   except:
+ #       return "<div> <h1>Course Recommender</h1><br/><h2> Please request after waiting for sometime.</h2></div>"
 
 
 @app.route('/timetable', methods=['GET'])
@@ -234,8 +265,7 @@ def get_timeschedule():
     try:
         student_id = request.args.get("query")
         timetable,courses,student,info=get_API_data(student_id)
-        prerequist=getPreRequisites(courses,student)
-        recommendedCourses=getCourses(student,courses,info,prerequist)
+        recommendedCourses=pd.read_pickle('courses/'+student_id+'.pkl')
         days=get_timetable_days(recommendedCourses,timetable)
         time_table_response={
             'monday':{
@@ -321,10 +351,10 @@ def get_timeschedule():
         with open('timetable.html', 'w') as file:
             file.write(html_timetable)
         return html_timetable
-        return render_pdf(HTML(string=html_timetable))
+#        return render_pdf(HTML(string=html_timetable))
     except:
         return "<div> <h1>Time Table Generator</h1><br/><h2>The Student ID doesn't exist for which time-table is requested!</h2></div>"
 
 if __name__=='__main__':
     #test()
-    app.run()
+    app.run(host="0.0.0.0",port=5000)
