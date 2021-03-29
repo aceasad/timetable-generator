@@ -255,7 +255,7 @@ def get_courses():
         with open('student_courses.html', 'w') as file:
             file.write(html_courses)
         return render_pdf(HTML(string=html_courses))
-   except:
+    except:
         return "<div> <h1>Course Recommender</h1><br/><h2> Please request after waiting for sometime.</h2></div>"
 
 
