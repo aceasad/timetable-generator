@@ -236,28 +236,27 @@ def index():
 
 @app.route('/courses', methods=['GET'])
 def get_courses():
-#    try:
-    student_id = request.args.get("query")
-    timetable,courses,student,info=get_API_data(student_id)
-    #prerequist=getPreRequisites(courses,student)
-    recommendedCourses=getCourses(student_id,courses,info)
-    #print(recommendedCourses.head(5))
-    recommendedCourses.to_pickle('courses/'+student_id+'.pkl')
-    env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template("courses.html")
-    template_vars = {"name" :info['name'],
-                    "id":info['id'],
-                    "gpa":str(info['gpa']),
-                    "level":info['level'],
-                    "Courses":recommendedCourses.to_html()
-                    }
-    html_courses = template.render(template_vars)
-    with open('student_courses.html', 'w') as file:
-        file.write(html_courses)
-    return html_courses
-    #return make_response(recommendedCourses.to_json(), 200)
-#   except:
- #       return "<div> <h1>Course Recommender</h1><br/><h2> Please request after waiting for sometime.</h2></div>"
+    try:
+        student_id = request.args.get("query")
+        timetable,courses,student,info=get_API_data(student_id)
+        #prerequist=getPreRequisites(courses,student)
+        recommendedCourses=getCourses(student_id,courses,info)
+        #print(recommendedCourses.head(5))
+        recommendedCourses.to_pickle('courses/'+student_id+'.pkl')
+        env = Environment(loader=FileSystemLoader('.'))
+        template = env.get_template("courses.html")
+        template_vars = {"name" :info['name'],
+                        "id":info['id'],
+                        "gpa":str(info['gpa']),
+                        "level":info['level'],
+                        "Courses":recommendedCourses.to_html()
+                        }
+        html_courses = template.render(template_vars)
+        with open('student_courses.html', 'w') as file:
+            file.write(html_courses)
+        return render_pdf(HTML(string=html_courses))
+   except:
+        return "<div> <h1>Course Recommender</h1><br/><h2> Please request after waiting for sometime.</h2></div>"
 
 
 @app.route('/timetable', methods=['GET'])
@@ -350,8 +349,8 @@ def get_timeschedule():
         html_timetable = template.render(template_vars)
         with open('timetable.html', 'w') as file:
             file.write(html_timetable)
-        return html_timetable
-#        return render_pdf(HTML(string=html_timetable))
+#        return html_timetable
+        return render_pdf(HTML(string=html_timetable))
     except:
         return "<div> <h1>Time Table Generator</h1><br/><h2>The Student ID doesn't exist for which time-table is requested!</h2></div>"
 
