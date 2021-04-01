@@ -7,7 +7,7 @@ from datetime import datetime
 from itertools import combinations, groupby
 from jinja2 import Environment, FileSystemLoader
 from flask import Flask, request, make_response
-
+from flask_weasyprint import HTML, render_pdf
 app = Flask(__name__)
 
 
@@ -52,79 +52,101 @@ def getPreRequisites(courses,student):
     return preRequisites
 
 def getCourses(student_id,student,info):
-    ch=18
+    ch=0
     hard_4=1
-    inter_4=2
-    easy_4=2        
+    inter_4=4
+    easy_4=3     
     inter_3=2
     easy_3=3
     inter_2=1
     easy_2=4
     easy_1=3
     gpa=float(info['gpa'].replace(":","."))
-    futureCourse = pd.DataFrame(columns=['course_id','type','credit_hours','prerequist'])
+    futureCourse = pd.DataFrame(columns=['course_id','type','credit_hours'])
     #Create a list of courses student can study here. 
     studentcourses_url="https://recommendationsystem.pretesting.online/public/api/courses/notStudied/"+student_id
     scourses_json=load(studentcourses_url)
     scourses=pd.DataFrame(dict(scourses_json)['courses'])
+    hard_no=0
+    intermediate_no=0
+    easy_no=0
+
+    for i in range(0,len(scourses['id'])):
+        if(scourses['type'][i]=="Difficult"):
+            hard_no+=1
+        elif(scourses['type'][i]=="Intermediate"):
+            intermediate_no+=1
+        else:
+            easy_no+=1
+    if(hard_no==0):
+        hard_4=0
+        inter_4+=1
+        easy_4+=2
+    if(intermediate_no==0):
+        easy_3+=2
+        inter_3-=2
 
     
+
     for i in range(0,len(scourses['id'])):
-        if(ch>0):
+        if(ch<=18):
             if(gpa>4):
                 if(scourses['type'][i]=="Intermediate" and inter_4>0):
                     inter_4-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
                 if(scourses['type'][i]=="Difficult" and hard_4>0):
                     hard_4-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
                 if(scourses['type'][i]=="easy" and easy_4>0):
                     easy_4-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
+                
+
 
             elif(gpa>3.0 and gpa < 4.0):
                 if(scourses['type'][i]=="Intermediate" and inter_3>0):
                     inter_3-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
                 if(scourses['type'][i]=="easy" and easy_3>0):
                     easy_3-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
             elif(gpa>2.8 and gpa < 3.1):
                 if(scourses['type'][i]=="Intermediate" and inter_2>0):
                     inter_2-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
                 if(scourses['type'][i]=="easy" and easy_2>0):
                     easy_2-=1
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
                     futureCourse=futureCourse.append(row,ignore_index=True)
-                    ch=ch-int(row['credit_hours'])
+                    ch=ch+int(row['credit_hours'])
 
             elif(gpa<2.81):
                 if(scourses['type'][i]=="easy" and easy_1>0):
-                    row={'course_id':scourses['id'][i],'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i],'prerequist':scourses['prerequisites'][i]}
-                    futureCourse.append(row,ignore_index=True)
+                    row={'course_id':str(scourses['id'][i]),'name':scourses['name'][i],'type':scourses['type'][i],'credit_hours':scourses['credit_hours'][i]}
+                    futureCourse=futureCourse.append(row,ignore_index=True)
                     easy_1-=1
-                    ch=ch-int(row['credit_hours'])                
+                    ch=ch+int(row['credit_hours'])                
         else:
             #print (futureCourse)
             break
+    
     return futureCourse
 
 
@@ -236,124 +258,118 @@ def index():
 
 @app.route('/courses', methods=['GET'])
 def get_courses():
-    try:
-        student_id = request.args.get("query")
-        timetable,courses,student,info=get_API_data(student_id)
-        #prerequist=getPreRequisites(courses,student)
-        recommendedCourses=getCourses(student_id,courses,info)
-        #print(recommendedCourses.head(5))
-        recommendedCourses.to_pickle('courses/'+student_id+'.pkl')
-        env = Environment(loader=FileSystemLoader('.'))
-        template = env.get_template("courses.html")
-        template_vars = {"name" :info['name'],
-                        "id":info['id'],
-                        "gpa":str(info['gpa']),
-                        "level":info['level'],
-                        "Courses":recommendedCourses.to_html()
-                        }
-        html_courses = template.render(template_vars)
-        with open('student_courses.html', 'w') as file:
-            file.write(html_courses)
-        return render_pdf(HTML(string=html_courses))
-    except:
-        return "<div> <h1>Course Recommender</h1><br/><h2> Please request after waiting for sometime.</h2></div>"
+    student_id = request.args.get("query")
+    timetable,courses,student,info=get_API_data(student_id)
+    recommendedCourses=getCourses(student_id,courses,info)
+    recommendedCourses.to_pickle('courses/'+student_id+'.pkl')
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template("courses.html")
+    template_vars = {"name" :info['name'],
+                    "id":info['id'],
+                    "gpa":str(info['gpa']),
+                    "level":info['level'],
+                    "Courses":recommendedCourses.to_html()
+                    }
+    html_courses = template.render(template_vars)
+    with open('student_courses.html', 'w') as file:
+        file.write(html_courses)
+    return render_pdf(HTML(string=html_courses))
 
 
 @app.route('/timetable', methods=['GET'])
 def get_timeschedule():
-    try:
-        student_id = request.args.get("query")
-        timetable,courses,student,info=get_API_data(student_id)
-        recommendedCourses=pd.read_pickle('courses/'+student_id+'.pkl')
-        days=get_timetable_days(recommendedCourses,timetable)
-        time_table_response={
-            'monday':{
-                'recommendation':[],
-                'clashes':[]
-            },
-            'tuesday':{
-                'recommendation':[],
-                'clashes':[]
-            },
-            'wednesday':{
-                'recommendation':[],
-                'clashes':[]
-            },
-            'thursday':{
-                'recommendation':[],
-                'clashes':[]
-            },
-            'sunday':{
-                'recommendation':[],
-                'clashes':[]
-            }
+    student_id = request.args.get("query")
+    timetable,courses,student,info=get_API_data(student_id)
+    courseR=pd.read_pickle('courses/'+student_id+'.pkl')
+    courseR['course_id']=pd.to_numeric(courseR['course_id'])
+    timetable['course_id']=pd.to_numeric(timetable['course_id'])
+
+    days=get_timetable_days(courseR,timetable)
+
+    time_table_response={
+        'monday':{
+            'recommendation':[],
+            'clashes':[]
+        },
+        'tuesday':{
+            'recommendation':[],
+            'clashes':[]
+        },
+        'wednesday':{
+            'recommendation':[],
+            'clashes':[]
+        },
+        'thursday':{
+            'recommendation':[],
+            'clashes':[]
+        },
+        'sunday':{
+            'recommendation':[],
+            'clashes':[]
         }
-        for i in range(0,len(days)):
-            recommendations,overlap_pairs=get_recommendation(days[i],100)
-            if(i==0):
-                for items in recommendations:
-                    time_table_response['monday']['recommendation'].extend(items)
-                for pairs in overlap_pairs:
-                    time_table_response['monday']['clashes'].append(pairs)
-            if(i==1):
-                for items in recommendations:
-                    time_table_response['tuesday']['recommendation'].extend(items)
-                for pairs in overlap_pairs:
-                    time_table_response['tuesday']['clashes'].append(pairs)
-            if(i==2):
-                for items in recommendations:
-                    time_table_response['wednesday']['recommendation'].extend(items)
-                for pairs in overlap_pairs:
-                    time_table_response['wednesday']['clashes'].append(pairs)
-            if(i==3):
-                for items in recommendations:
-                    time_table_response['thursday']['recommendation'].extend(items)
-                for pairs in overlap_pairs:
-                    time_table_response['thursday']['clashes'].append(pairs)
-            if(i==4):
-                for items in recommendations:
-                    time_table_response['sunday']['recommendation'].extend(items)
-                for pairs in overlap_pairs:
-                    time_table_response['sunday']['clashes'].append(pairs)
+    }
+    for i in range(0,len(days)):
+        recommendations,overlap_pairs=get_recommendation(days[i],100)
+        if(i==0):
+            for items in recommendations:
+                time_table_response['monday']['recommendation'].extend(items)
+            for pairs in overlap_pairs:
+                time_table_response['monday']['clashes'].append(pairs)
+        if(i==1):
+            for items in recommendations:
+                time_table_response['tuesday']['recommendation'].extend(items)
+            for pairs in overlap_pairs:
+                time_table_response['tuesday']['clashes'].append(pairs)
+        if(i==2):
+            for items in recommendations:
+                time_table_response['wednesday']['recommendation'].extend(items)
+            for pairs in overlap_pairs:
+                time_table_response['wednesday']['clashes'].append(pairs)
+        if(i==3):
+            for items in recommendations:
+                time_table_response['thursday']['recommendation'].extend(items)
+            for pairs in overlap_pairs:
+                time_table_response['thursday']['clashes'].append(pairs)
+        if(i==4):
+            for items in recommendations:
+                time_table_response['sunday']['recommendation'].extend(items)
+            for pairs in overlap_pairs:
+                time_table_response['sunday']['clashes'].append(pairs)
 
-        mon = pd.DataFrame(time_table_response['monday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
-        tue = pd.DataFrame(time_table_response['tuesday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
-        wed = pd.DataFrame(time_table_response['wednesday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
-        thu = pd.DataFrame(time_table_response['thursday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
-        sun = pd.DataFrame(time_table_response['sunday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
+    mon = pd.DataFrame(time_table_response['monday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
+    tue = pd.DataFrame(time_table_response['tuesday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
+    wed = pd.DataFrame(time_table_response['wednesday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
+    thu = pd.DataFrame(time_table_response['thursday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
+    sun = pd.DataFrame(time_table_response['sunday']['recommendation'], columns = ['Course ID', 'Section','Start Time',"End time","Level"]).sort_values(by='Start Time')
 
-        
-        mon_clash=get_clashes('monday',time_table_response)
-        tue_clash=get_clashes('tuesday',time_table_response)
-        wed_clash=get_clashes('wednesday',time_table_response)
-        thu_clash=get_clashes('thursday',time_table_response)
-        sun_clash=get_clashes('sunday',time_table_response)
+    
+    mon_clash=get_clashes('monday',time_table_response)
+    tue_clash=get_clashes('tuesday',time_table_response)
+    wed_clash=get_clashes('wednesday',time_table_response)
+    thu_clash=get_clashes('thursday',time_table_response)
+    sun_clash=get_clashes('sunday',time_table_response)
 
 
-        env = Environment(loader=FileSystemLoader('.'))
-        template = env.get_template("template.html")
-        template_vars = {"Info" : "Timetable for Student "+info['name'],
-                        "Courses": recommendedCourses.to_html(),
-                        "title":"Student Timetable",
-                        "time_table_mon": mon.to_html(),
-                        "time_table_tue": tue.to_html(),
-                        "time_table_wed": wed.to_html(),
-                        "time_table_thu": thu.to_html(),
-                        "time_table_sun": sun.to_html(),
-                        "clash_mon": mon_clash.to_html(),
-                        "clash_tue": tue_clash.to_html(),
-                        "clash_wed": wed_clash.to_html(),
-                        "clash_thu": thu_clash.to_html(),
-                        "clash_sun": sun_clash.to_html()
-                        }
-        html_timetable = template.render(template_vars)
-        with open('timetable.html', 'w') as file:
-            file.write(html_timetable)
-#        return html_timetable
-        return render_pdf(HTML(string=html_timetable))
-    except:
-        return "<div> <h1>Time Table Generator</h1><br/><h2>The Student ID doesn't exist for which time-table is requested!</h2></div>"
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template("template.html")
+    template_vars = {"Info" : "Timetable for Student "+info['name'],
+                    "Courses": courseR.to_html(),
+                    "title":"Student Timetable",
+                    "time_table_mon": mon.to_html(),
+                    "time_table_tue": tue.to_html(),
+                    "time_table_wed": wed.to_html(),
+                    "time_table_thu": thu.to_html(),
+                    "time_table_sun": sun.to_html(),
+                    "clash_mon": mon_clash.to_html(),
+                    "clash_tue": tue_clash.to_html(),
+                    "clash_wed": wed_clash.to_html(),
+                    "clash_thu": thu_clash.to_html(),
+                    "clash_sun": sun_clash.to_html()
+                    }
+    html_timetable = template.render(template_vars)
+    with open('timetable.html', 'w') as file:
+        file.write(html_timetable)
+    return render_pdf(HTML(string=html_timetable))
 
 if __name__=='__main__':
-    #test()
     app.run(host="0.0.0.0",port=5000)
